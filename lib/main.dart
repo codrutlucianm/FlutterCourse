@@ -5,5 +5,5 @@ import 'Homework2/NumberShape.dart' as number_shape;
 
 
 void main() {
-  runApp(guess_my_number.MyApp());
+  runApp(number_shape.MyApp());
 }
