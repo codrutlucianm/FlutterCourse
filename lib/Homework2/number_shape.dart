@@ -28,7 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int inputNumber;
   String outputText;
   bool isEmpty = true;
@@ -91,16 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
                 margin: const EdgeInsets.all(15.0),
                 child: Column(children: <Widget>[
-                  const Text('Enter a number:',
-                      style: TextStyle(fontSize: 22.0, color: Colors.white60)),
+                  const Text('Enter a number:', style: TextStyle(fontSize: 22.0, color: Colors.white60)),
                   TextField(
                       controller: nameHolder,
-                      style:
-                          const TextStyle(fontSize: 18.0, color: Colors.white),
+                      style: const TextStyle(fontSize: 18.0, color: Colors.white),
                       decoration: const InputDecoration(
-                          hintText: '0',
-                          hintStyle:
-                              TextStyle(fontSize: 18.0, color: Colors.white54)),
+                          hintText: '0', hintStyle: TextStyle(fontSize: 18.0, color: Colors.white54)),
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onChanged: (String value) {
@@ -126,10 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text(dialogTitle,
-                      style: const TextStyle(color: Colors.teal)),
-                  content: Text(outputText,
-                      style: const TextStyle(color: Colors.white54)),
+                  title: Text(dialogTitle, style: const TextStyle(color: Colors.teal)),
+                  content: Text(outputText, style: const TextStyle(color: Colors.white54)),
                   backgroundColor: Colors.white24,
                 );
               });

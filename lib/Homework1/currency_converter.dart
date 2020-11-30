@@ -63,22 +63,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: <
-              Widget>[
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
         Image.network('https://www.valutx.com/image/img1.png'),
         Container(
             margin: const EdgeInsets.all(15.0),
             child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Enter sum in EUR',
-                    hintStyle:
-                        const TextStyle(fontSize: 14.0, color: Colors.white24),
+                    hintStyle: const TextStyle(fontSize: 14.0, color: Colors.white24),
                     errorText: error ? 'Enter a number' : null),
                 style: const TextStyle(color: Colors.white60),
                 keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))
-                ],
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                 onChanged: (String value) {
                   setState(() {
                     if (value.isEmpty) {
@@ -100,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       builder: (context, snapshot) {
                         return FlatButton(
                             onPressed: () {
-                              _convertRONtoEUR(double.parse(
-                                  snapshot.data['rates']['RON'].toString()));
+                              _convertRONtoEUR(double.parse(snapshot.data['rates']['RON'].toString()));
                             },
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(23.0),
@@ -112,18 +107,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Row(
                               children: const <Widget>[
                                 Icon(Icons.sync),
-                                Text('Convert',
-                                    style: TextStyle(fontSize: 16.0)),
+                                Text('Convert', style: TextStyle(fontSize: 16.0)),
                               ],
                             ));
                       }))
             ])),
-        Text(
-            convertedSumRON.toString() == 'null' || error
-                ? ''
-                : convertedSumRON.toString() + ' RON',
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white70, fontSize: 24.0))
+        Text(convertedSumRON.toString() == 'null' || error ? '' : convertedSumRON.toString() + ' RON',
+            textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 24.0))
       ])),
     );
   }

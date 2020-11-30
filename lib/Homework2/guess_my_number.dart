@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int option, inputNumber, generatedNumber;
   String result, dialogTitle, buttonText = 'Guess';
   bool isEmpty = true, guessPressed = false, okPressed = false;
@@ -49,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final Random random = Random();
     final int returned = random.nextInt(101) + 1;
     print(returned);
-      return returned;
+    return returned;
   }
 
   void _compareNumber(int inputNumber) {
@@ -61,8 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         } else if (inputNumber > generatedNumber) {
           result = '''You tried ${inputNumber.toString()}.\n Go lower!''';
         } else {
-          result =
-              '''You tried ${inputNumber.toString()}.\n You guessed right!''';
+          result = '''You tried ${inputNumber.toString()}.\n You guessed right!''';
         }
       }
       nameHolder.clear();
@@ -71,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _tryAgain() {
-    if(!okPressed) {
+    if (!okPressed) {
       Navigator.of(context).pop();
     }
     nameHolder.clear();
@@ -153,20 +151,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(children: <Widget>[
                             Container(
                                 margin: const EdgeInsets.all(10.0),
-                                child: const Text('Try a number:',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 22.0))),
+                                child:
+                                    const Text('Try a number:', style: TextStyle(color: Colors.black, fontSize: 22.0))),
                             Container(
                                 margin: const EdgeInsets.all(10.0),
                                 color: Colors.white,
                                 child: TextField(
                                     controller: nameHolder,
-                                    decoration: const InputDecoration(
-                                        prefixIcon: Icon(Icons.hdr_strong)),
+                                    decoration: const InputDecoration(prefixIcon: Icon(Icons.hdr_strong)),
                                     keyboardType: TextInputType.number,
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.digitsOnly
-                                    ],
+                                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     onChanged: (String value) {
                                       setState(() {
                                         if (value.isEmpty) {
@@ -192,46 +186,34 @@ class _MyHomePageState extends State<MyHomePage> {
                                             if (generatedNumber == inputNumber) {
                                               showDialog<AlertDialog>(
                                                   context: context,
-                                                  builder:
-                                                      (BuildContext context) {
+                                                  builder: (BuildContext context) {
                                                     return AlertDialog(
-                                                      title: const Text(
-                                                          'You guessed right!',
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .deepOrange)),
-                                                      content: Row(
-                                                          children: <Widget>[
-                                                            Text(
-                                                                'It was ${generatedNumber.toString()}',
-                                                                style: const TextStyle(
-                                                                    color: Colors
-                                                                        .black))
-                                                          ]),
+                                                      title: const Text('You guessed right!',
+                                                          style: TextStyle(color: Colors.deepOrange)),
+                                                      content: Row(children: <Widget>[
+                                                        Text('It was ${generatedNumber.toString()}',
+                                                            style: const TextStyle(color: Colors.black))
+                                                      ]),
                                                       actions: <Widget>[
                                                         FlatButton(
-                                                            child: const Text(
-                                                                'Try Again!'),
+                                                            child: const Text('Try Again!'),
                                                             onPressed: () {
                                                               _tryAgain();
                                                             }),
                                                         FlatButton(
-                                                            child: const Text(
-                                                                'OK'),
+                                                            child: const Text('OK'),
                                                             onPressed: () {
                                                               _ok();
                                                             })
                                                       ],
-                                                      backgroundColor:
-                                                          Colors.white,
+                                                      backgroundColor: Colors.white,
                                                     );
                                                   });
                                             }
                                           }
                                         },
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(23.0),
+                                          borderRadius: BorderRadius.circular(23.0),
                                         ),
                                         color: Colors.red,
                                         textColor: Colors.white,
@@ -239,13 +221,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: Container(
                                             margin: const EdgeInsets.all(4.0),
                                             child: Column(children: <Widget>[
-                                              Text(buttonText,
-                                                  style: const TextStyle(
-                                                      fontSize: 16.0)),
+                                              Text(buttonText, style: const TextStyle(fontSize: 16.0)),
                                               if (buttonText == 'Guess')
-                                                const Icon(
-                                                    FontAwesomeIcons.dice,
-                                                    size: 16)
+                                                const Icon(FontAwesomeIcons.dice, size: 16)
                                               else
                                                 const Icon(Icons.sync, size: 16)
                                             ])))))
