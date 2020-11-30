@@ -8,7 +8,7 @@ jobs:
       CI_JOB_NAME: format
     steps:
       - name: Install Flutter
-        uses: subosito/flutter-action@v1.1.1
+        uses: subosito/flutter-action@v1
         with:
           channel: stable
       - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
       CI_JOB_NAME: analyze
     steps:
       - name: Install Flutter
-        uses: subosito/flutter-action@v1.1.1
+        uses: subosito/flutter-action@v1
         with:
           channel: stable
       - uses: actions/checkout@v2
