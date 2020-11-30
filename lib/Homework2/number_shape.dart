@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: const InputDecoration(
                           hintText: '0', hintStyle: TextStyle(fontSize: 18.0, color: Colors.white54)),
                       keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      inputFormatters: <TextInputFormatter> [FilteringTextInputFormatter.digitsOnly],
                       onChanged: (String value) {
                         setState(() {
                           if (value.isEmpty) {

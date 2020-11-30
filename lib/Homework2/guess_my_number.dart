@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     controller: nameHolder,
                                     decoration: const InputDecoration(prefixIcon: Icon(Icons.hdr_strong)),
                                     keyboardType: TextInputType.number,
-                                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                    inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                                     onChanged: (String value) {
                                       setState(() {
                                         if (value.isEmpty) {

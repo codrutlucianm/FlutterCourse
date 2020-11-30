@@ -38,18 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String request = 'https://api.exchangeratesapi.io/latest?symbols=RON';
 
-  Future<Map> getData() async {
+  Future<Map<String, dynamic>> getData() async {
     final http.Response response = await http.get(request);
     return json.decode(response.body);
   }
 
-  void _convertRONtoEUR(double EUR) {
+  void _convertRONtoEUR(double rateEUR) {
     setState(() {
       if (emptyTextField) {
         convertedSumRON = 0;
         error = true;
       } else {
-        convertedSumRON = initialSumEUR * EUR;
+        convertedSumRON = initialSumEUR * rateEUR;
         error = false;
       }
     });
@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     errorText: error ? 'Enter a number' : null),
                 style: const TextStyle(color: Colors.white60),
                 keyboardType: TextInputType.number,
+                // ignore: always_specify_types
                 inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                 onChanged: (String value) {
                   setState(() {
@@ -91,9 +92,10 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                   width: 120.0,
                   height: 50.0,
-                  child: FutureBuilder(
+                  child: FutureBuilder<dynamic>(
                       future: getData(),
-                      builder: (context, snapshot) {
+                      // ignore: always_specify_types
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
                         return FlatButton(
                             onPressed: () {
                               _convertRONtoEUR(double.parse(snapshot.data['rates']['RON'].toString()));
