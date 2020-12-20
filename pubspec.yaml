@@ -13,14 +13,19 @@ dependencies:
     sdk: flutter
   google_fonts: any
   audioplayers: ^0.17.0
-
-
   cupertino_icons: ^1.0.0
+  built_value: ^7.1.0
+  built_collection: ^4.3.2
   http: any
+  redux: ^4.0.0+3
+  flutter_redux: ^0.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   font_awesome_flutter: ^8.2.0
+  build_runner: '>=1.0.0 <2.0.0'
+  built_value_generator: ^7.1.0
 
 flutter:
 
