@@ -4,7 +4,6 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:flutter_homework/Homework5/models/serializers.dart';
 
-
 part 'movie.g.dart';
 
 abstract class Movie implements Built<Movie, MovieBuilder> {

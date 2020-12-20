@@ -93,26 +93,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(widget.title + ' 🇩🇪 & 🇪🇸',
-            style: GoogleFonts.lobster(fontSize: 28)),
+        title: Text(widget.title + ' 🇩🇪 & 🇪🇸', style: GoogleFonts.lobster(fontSize: 28)),
         flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: <Color>[
-                      Colors.red,
-                      Colors.pink,
-                      Colors.pink[700],
-                      Colors.pink[900],
-                      Colors.purple
-                    ]),
+                    colors: <Color>[Colors.red, Colors.pink, Colors.pink[700], Colors.pink[900], Colors.purple]),
                 boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.pink[900].withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3))
+                  color: Colors.pink[900].withOpacity(0.5), spreadRadius: 5, blurRadius: 7, offset: const Offset(0, 3))
             ])),
       ),
       body: Center(
@@ -126,8 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: GridView.builder(
                             padding: const EdgeInsets.all(16.0),
                             itemCount: _phrases.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               mainAxisSpacing: 32.0,
                               crossAxisSpacing: 32.0,

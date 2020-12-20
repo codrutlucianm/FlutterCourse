@@ -39,9 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           } else if (_checkWin(_listX) != null) {
             _gameOver = true;
             _listO.clear();
-            _listX = _listX
-                .where((int element) => _checkWin(_listX).contains(element))
-                .toList();
+            _listX = _listX.where((int element) => _checkWin(_listX).contains(element)).toList();
           }
           _isXsTurn = false;
         } else {
@@ -49,9 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           if (_checkWin(_listO) != null) {
             _gameOver = true;
             _listX.clear();
-            _listO = _listO
-                .where((int element) => _checkWin(_listO).contains(element))
-                .toList();
+            _listO = _listO.where((int element) => _checkWin(_listO).contains(element)).toList();
           }
           _isXsTurn = true;
         }
@@ -100,41 +96,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Border _determineBorder(int index) {
     Border determinedBorder = Border.all();
-    const BorderSide _borderSide =
-        BorderSide(width: 7, color: Colors.deepOrange);
+    const BorderSide _borderSide = BorderSide(width: 7, color: Colors.deepOrange);
     switch (index) {
       case 0:
-        determinedBorder =
-            const Border(bottom: _borderSide, right: _borderSide);
+        determinedBorder = const Border(bottom: _borderSide, right: _borderSide);
         break;
       case 1:
-        determinedBorder = const Border(
-            left: _borderSide, bottom: _borderSide, right: _borderSide);
+        determinedBorder = const Border(left: _borderSide, bottom: _borderSide, right: _borderSide);
         break;
       case 2:
         determinedBorder = const Border(left: _borderSide, bottom: _borderSide);
         break;
       case 3:
-        determinedBorder = const Border(
-            bottom: _borderSide, right: _borderSide, top: _borderSide);
+        determinedBorder = const Border(bottom: _borderSide, right: _borderSide, top: _borderSide);
         break;
       case 4:
-        determinedBorder = const Border(
-            left: _borderSide,
-            bottom: _borderSide,
-            right: _borderSide,
-            top: _borderSide);
+        determinedBorder = const Border(left: _borderSide, bottom: _borderSide, right: _borderSide, top: _borderSide);
         break;
       case 5:
-        determinedBorder = const Border(
-            left: _borderSide, bottom: _borderSide, top: _borderSide);
+        determinedBorder = const Border(left: _borderSide, bottom: _borderSide, top: _borderSide);
         break;
       case 6:
         determinedBorder = const Border(right: _borderSide, top: _borderSide);
         break;
       case 7:
-        determinedBorder = const Border(
-            left: _borderSide, top: _borderSide, right: _borderSide);
+        determinedBorder = const Border(left: _borderSide, top: _borderSide, right: _borderSide);
         break;
       case 8:
         determinedBorder = const Border(left: _borderSide, top: _borderSide);
@@ -155,11 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: <Color>[
-              Colors.red,
-              Colors.deepOrange,
-              Colors.amber
-            ]))),
+                    colors: <Color>[Colors.red, Colors.deepOrange, Colors.amber]))),
       ),
       body: Center(
         child: Container(
@@ -172,8 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: GridView.builder(
                       padding: const EdgeInsets.all(8.0),
                       itemCount: 9,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                       ),
                       itemBuilder: (BuildContext context, int index) {
@@ -199,16 +180,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 fontFamily: 'NerkoOne',
                                                 fontSize: 100,
                                               )
-                                            : const TextStyle(
-                                                color: Colors.black),
+                                            : const TextStyle(color: Colors.black),
                                 child: _tryAgainPressed
                                     ? const Text('')
                                     : _listX.contains(index)
-                                        ? const Text('X',
-                                            textAlign: TextAlign.center)
+                                        ? const Text('X', textAlign: TextAlign.center)
                                         : _listO.contains(index)
-                                            ? const Text('O',
-                                                textAlign: TextAlign.center)
+                                            ? const Text('O', textAlign: TextAlign.center)
                                             : const Text('')),
                             //duration: const Duration(milliseconds: 350),
                           ),
@@ -231,9 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             children: const <Widget>[
                               Icon(Icons.sync),
-                              Text('Try again',
-                                  style: TextStyle(fontSize: 16.0),
-                                  textAlign: TextAlign.center),
+                              Text('Try again', style: TextStyle(fontSize: 16.0), textAlign: TextAlign.center),
                             ],
                           ))),
                 )
