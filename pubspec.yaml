@@ -19,6 +19,7 @@ dependencies:
   http: any
   redux: ^4.0.0+3
   flutter_redux: ^0.7.0
+  freezed_annotation: ^0.12.0
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +27,7 @@ dev_dependencies:
   font_awesome_flutter: ^8.2.0
   build_runner: '>=1.0.0 <2.0.0'
   built_value_generator: ^7.1.0
+  freezed: any
 
 flutter:
 
