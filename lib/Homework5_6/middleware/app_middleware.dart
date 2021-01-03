@@ -1,7 +1,6 @@
-import 'package:flutter_homework/Homework5_6/actions/get_movies.dart';
+import 'package:flutter_homework/Homework5_6/actions/index.dart';
 import 'package:flutter_homework/Homework5_6/data/yts_api.dart';
-import 'package:flutter_homework/Homework5_6/models/app_state.dart';
-import 'package:flutter_homework/Homework5_6/models/movie.dart';
+import 'package:flutter_homework/Homework5_6/models/index.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
 
@@ -14,20 +13,16 @@ class AppMiddleware {
 
   List<Middleware<AppState>> get middleware {
     return <Middleware<AppState>>[
-      _getMoviesMiddleware,
+      TypedMiddleware<AppState, GetMoviesStart>(_getMoviesStart),
     ];
   }
 
-  Future<void> _getMoviesMiddleware(Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getMoviesStart(Store<AppState> store, GetMoviesStart action, NextDispatcher next) async {
     next(action);
-    if (action is! GetMoviesStart) {
-      return;
-    }
 
     try {
-      final GetMoviesStart startAction = action as GetMoviesStart;
       final List<Movie> movies = await _ytsApi.getMovies(
-        startAction.page,
+        action.page,
         store.state.quality,
         store.state.genres.asList(),
         store.state.orderBy,

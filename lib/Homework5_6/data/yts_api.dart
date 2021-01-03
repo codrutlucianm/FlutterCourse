@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:flutter_homework/Homework5_6/models/movie.dart';
+
+import 'package:flutter_homework/Homework5_6/models/index.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
